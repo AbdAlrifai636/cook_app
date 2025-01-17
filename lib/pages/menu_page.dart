@@ -38,7 +38,7 @@ class _MenuPageState extends State<MenuPage> {
             ),
             _sliverAppBar(onTap: () {}),
             FutureBuilder(
-                future: services.getAllPost(id, token),
+                future: services.getAllMeals(id, token),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const SliverToBoxAdapter(

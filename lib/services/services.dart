@@ -10,7 +10,7 @@ class Services {
   Dio dio = Dio();
   Response? response;
 
-  Future<MealModel?> getAllPost(dynamic id, dynamic token) async {
+  Future<MealModel?> getAllMeals(dynamic id, dynamic token) async {
     try {
       final response = await dio.get(
         "https://food-api-omega.vercel.app/api/v1/chef/get-chef/$id/meals",
@@ -36,7 +36,7 @@ class Services {
     try {
       response = await dio.post(
           "https://food-api-omega.vercel.app/api/v1/chef/signin",
-          data: authModel.toRawJson());
+          data: authModel.toJson());
       final String token = response!.data['token'];
       getIt<GetStorage>().write("token", token);
       log('Response: $token');
